@@ -1,0 +1,27 @@
+<div style="display: flex; justify-content:center; align-items:center;">
+  <div class="card text-bg-light" style="width: 50rem; border: 50px solid lightblue;">
+    <img [src]="info?.source" class="card-img-top py-2 px-4 mx-auto" style="max-width: 300px; max-height: 300px;"
+      alt="image" />
+    <div class="card-body">
+      <h1 class="card-title">{{ info?.name }}</h1>
+      <p class="card-text"><b>{{ info?.description }}</b></p>
+    </div>
+    <form #chemForm="ngForm" (ngSubmit)="getFormData(chemForm.value)" *ngIf="!isEditable">
+      <div class="form-group mx-2">
+        <label for="inputName">Name</label>
+        <input [(ngModel)]="info.name" name="name" type="text" class="form-control" id="inputName"
+          aria-describedby="emailHelp" placeholder="Enter Name">
+      </div>
+      <div class="form-group mx-2">
+        <label for="inputDescription">Description</label>
+        <input [(ngModel)]="info.description" name="description" type="text" class="form-control" id="inputDescription"
+          placeholder="Description">
+      </div>
+      <button class="btn btn-success my-2 mx-3" type="submit">Save</button>
+    </form>
+    <div class="card-body">
+      <button (click)="makeEditable()" class="btn btn-primary" type="submit">Edit</button>
+      <button (click)="deleteChemical()" class="btn btn-danger mx-2" type="submit">Delete</button>
+    </div>
+  </div>
+</div>

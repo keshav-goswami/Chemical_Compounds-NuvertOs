@@ -1,0 +1,22 @@
+<div class="cards-container">
+
+  <div *ngFor="
+      let chemical of allChemicals
+        | paginate
+          : {
+              itemsPerPage: 9,
+              currentPage: page,
+              totalItems: totalLength
+            }">
+
+    <mat-card class="chemical-card" (click)="getFullChemicalInfo(chemical.id)">
+      <mat-card-header style="justify-content: space-around">
+        <mat-card-title>{{ chemical.name }}</mat-card-title>
+        <img class="md-avatar" src="{{ chemical.source }}" />
+      </mat-card-header>
+    </mat-card>
+
+  </div>
+  
+  <pagination-controls (pageChange)="onChemicalsDataChange($event)"></pagination-controls>
+</div>
