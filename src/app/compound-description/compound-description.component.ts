@@ -8,6 +8,7 @@ import { chemicalType } from '../app.component';
   templateUrl: './compound-description.component.html',
   styleUrls: ['./compound-description.component.css']
 })
+
 export class FullChemicalInfoComponent {
   info: any;
   isEditable: boolean = true;

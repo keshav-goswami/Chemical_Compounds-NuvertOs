@@ -15,11 +15,11 @@ app.use(cors());
 app.get('/', function (req, res) {
     res.send('Server Working');
 })
-app.get('/compounds/:page', controller.getAll)
-app.get('/compound/:id', controller.getChemical)
-app.post('/create', controller.create)
-app.delete('/delete/:id', controller.deleteChemical)
-app.patch('/update/:id', controller.updateChemical)
+app.get('/compounds/:page', controller.getAllCompounds)
+app.get('/compound/:id', controller.getCompound)
+app.post('/create', controller.createCompound)
+app.delete('/delete/:id', controller.removeCompound)
+app.patch('/update/:id', controller.updateCompound)
 
 app.listen(3000, () => {
     console.log('Server up and Running!')
