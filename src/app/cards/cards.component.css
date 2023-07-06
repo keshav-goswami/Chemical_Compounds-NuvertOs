@@ -1,24 +1,24 @@
 .cards-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 16px;
-    padding: 30px;
-    background-color: lightblue;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 16px;
+  padding: 30px;
+  background-color: lightblue;
 }
 
 .chemical-card {
-    margin: 20px;
-    padding: 20px;
-    background-color: whitesmoke;
-    border-radius: 25px;
-    text-align: center;
-    cursor: pointer;
+  margin: 20px;
+  padding: 20px;
+  background-color: whitesmoke;
+  border-radius: 25px;
+  text-align: center;
+  cursor: pointer;
 }
 
 .md-avatar {
-    border-radius: 10%;
-    border: 10px solid black;
-    height: 200px !important;
-    width: 200px !important;
-    margin: 3px;
+  border-radius: 10%;
+  border: 10px solid black;
+  height: 200px !important;
+  width: 200px !important;
+  margin: 3px;
 }

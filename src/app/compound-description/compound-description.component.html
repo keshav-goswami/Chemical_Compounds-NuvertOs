@@ -6,18 +6,23 @@
       <h1 class="card-title">{{ info?.name }}</h1>
       <p class="card-text"><b>{{ info?.description }}</b></p>
     </div>
-    <form #chemForm="ngForm" (ngSubmit)="getFormData(chemForm.value)" *ngIf="!isEditable">
+    <form #chemForm="ngForm" (ngSubmit)="updateFormData(chemForm.value)" *ngIf="!isEditable">
       <div class="form-group mx-2">
         <label for="inputName">Name</label>
         <input [(ngModel)]="info.name" name="name" type="text" class="form-control" id="inputName"
-          aria-describedby="emailHelp" placeholder="Enter Name">
+          (input)="onUserInput($event)" aria-describedby="emailHelp" placeholder="Enter Name">
       </div>
       <div class="form-group mx-2">
         <label for="inputDescription">Description</label>
         <input [(ngModel)]="info.description" name="description" type="text" class="form-control" id="inputDescription"
           placeholder="Description">
       </div>
-      <button class="btn btn-success my-2 mx-3" type="submit">Save</button>
+      <div class="form-group mx-2">
+        <label for="inputSource">Source</label>
+        <input [(ngModel)]="info.source" name="source" type="text" class="form-control" id="inputSource"
+          placeholder="Source">
+      </div>
+      <button class="btn btn-success my-2 mx-3" [disabled]="isDisabled" type="submit">Save</button>
     </form>
     <div class="card-body">
       <button (click)="makeEditable()" class="btn btn-primary" type="submit">Edit</button>

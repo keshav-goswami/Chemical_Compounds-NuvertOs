@@ -10,19 +10,26 @@ import { chemicalType } from '../app.component';
 })
 export class FullChemicalInfoComponent {
   info: any;
-  isEditable = true;
-  constructor(private route: ActivatedRoute, 
+  isEditable: boolean = true;
+  isDisabled: boolean = false;
+
+  constructor(private route: ActivatedRoute,
     private service: ChemicalDataService,
     private router: Router
-    ) {
+  ) {
     const id = route.snapshot.paramMap.get('id') as string
     service.getThisChemical(id).subscribe((data: chemicalType[]) => {
       this.info = data;
       console.log(this.info.name);
     })
-  } 
-  
-  getFormData(data: any) {
+  }
+
+  onUserInput(event: any) {
+    let inputText = event.target.value;
+    this.isDisabled = inputText === '' ? true : false;
+  }
+
+  updateFormData(data: any) {
     const finalData = {
       id: this.info.id,
       ...data

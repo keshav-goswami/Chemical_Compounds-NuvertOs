@@ -1,55 +1,26 @@
 <div class="new-chem-form">
-  <form
-    #newChemForm="ngForm"
-    (ngSubmit)="addNewChemical(newChemForm.value)"
-    class="m-2 p-4"
-    style="width: 60vw; border: 30px solid lightblue"
-  >
+  <form #newChemForm="ngForm" (ngSubmit)="addNewChemical(newChemForm.value)" class="m-2 p-4"
+    style="width: 60vw; border: 30px solid lightblue">
     <h2>ADD NEW CHEMICAL</h2>
     <div class="form-group my-2">
       <label for="inputName">Name</label>
-      <input
-        ngModel
-        type="text"
-        name="name"
-        class="form-control"
-        id="inputName"
-        placeholder="Enter name"
-      />
+      <input ngModel type="text" name="name" class="form-control" id="inputName" placeholder="Enter name"
+        (input)="onUserInput($event)" />
     </div>
     <div class="form-group my-2">
       <label for="inputDescription">Description</label>
-      <input
-        ngModel
-        type="text"
-        name="description"
-        class="form-control"
-        id="inputDescription"
-        placeholder="Enter description"
-      />
+      <input ngModel type="text" name="description" class="form-control" id="inputDescription"
+        placeholder="Enter description" />
     </div>
     <div class="form-group my-2">
       <label for="inputSource">Source</label>
-      <input
-        ngModel
-        type="text"
-        name="source"
-        class="form-control"
-        id="inputSource"
-        placeholder="Enter source"
-      />
+      <input ngModel type="text" name="source" class="form-control" id="inputSource" placeholder="Enter source" />
     </div>
     <div class="form-group my-2">
       <label for="inputAttribution">Attribution</label>
-      <input
-        ngModel
-        type="text"
-        name="attribution"
-        class="form-control"
-        id="inputAttribution"
-        placeholder="Enter attribution"
-      />
+      <input ngModel type="text" name="attribution" class="form-control" id="inputAttribution"
+        placeholder="Enter attribution" />
     </div>
-    <button type="submit" class="btn btn-primary my-2">Submit</button>
+    <button type="submit" class="btn btn-primary my-2" [disabled]="isDisabled">Submit</button>
   </form>
 </div>

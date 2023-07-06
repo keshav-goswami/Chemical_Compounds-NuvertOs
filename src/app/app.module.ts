@@ -33,4 +33,4 @@ import { AddNewChemicalComponent } from './add-compound/add-compound.component';
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

@@ -19,16 +19,16 @@ export interface ChemicalDataResponse {
 export class ChemicalDataService {
   baseURL = 'http://localhost:3000';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getAllChemicals(page: number) {
     return this.http
-      .get<ChemicalsDataResponse>(`${this.baseURL}/chemicals/${page}`)
+      .get<ChemicalsDataResponse>(`${this.baseURL}/compounds/${page}`)
       .pipe(map((res) => res.data));
   }
   getThisChemical(id: string) {
     return this.http
-      .get<ChemicalDataResponse>(`${this.baseURL}/chemical/${id}`)
+      .get<ChemicalDataResponse>(`${this.baseURL}/compound/${id}`)
       .pipe(map((res) => res.data));
   }
   updateChemical(data: any) {
@@ -48,7 +48,7 @@ export class ChemicalDataService {
     });
   }
   addNewChemical(data: any) {
-    return this.http.post(`${this.baseURL}/add`, data, {
+    return this.http.post(`${this.baseURL}/create`, data, {
       headers: {
         'Content-type': 'application/json',
       },

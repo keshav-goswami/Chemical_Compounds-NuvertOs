@@ -9,25 +9,25 @@ import { chemicalsType } from '../app.component';
   styleUrls: ['./cards.component.css']
 })
 
-export class ChemicalCardsComponent{
+export class ChemicalCardsComponent {
   allChemicals: any = [];
-  totalLength:any;
-  page:number = 1; 
+  totalLength: any;
+  page: number = 1;
 
   constructor(private router: Router, private service: ChemicalDataService) {
     this.getAll();
   }
- 
+
   getAll() {
     this.service.getAllChemicals(this.page).subscribe((data: chemicalsType) => {
       this.totalLength = data.count;
       this.allChemicals = data.rows;
     })
-    console.log("CHEMICALS: ", this.allChemicals); 
+    console.log("CHEMICALS: ", this.allChemicals);
   }
 
   getFullChemicalInfo = (id: string) => {
-    const navigationDetails: string[] = ['/chemical'];
+    const navigationDetails: string[] = ['/compound'];
     navigationDetails.push(id);
     this.router.navigate(navigationDetails);
   }

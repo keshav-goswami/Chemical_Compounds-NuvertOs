@@ -8,18 +8,25 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-compound.component.css']
 })
 export class AddNewChemicalComponent {
-  newChemical:any;
-  constructor(private service:ChemicalDataService,private router: Router) {}
+  newChemical: any;
+  isDisabled: boolean = true;
+
+  constructor(private service: ChemicalDataService, private router: Router) { }
+
+  onUserInput(event: any) {
+    let inputText = event.target.value;
+    this.isDisabled = inputText === '' ? true : false;
+  }
 
   addNewChemical(data: any) {
     const body = {
       ...data,
-      id: Math.floor(Math.random()*10000000),
+      id: Math.floor(Math.random() * 10000000),
       dateModified: new Date(),
     }
-    this.service.addNewChemical(body).subscribe((data) =>{
+    this.service.addNewChemical(body).subscribe((data) => {
       this.router.navigate(['/'])
-    } )
+    })
   }
 
 }

@@ -6,8 +6,8 @@ const sequelize = new Sequelize('chemicalsdb', 'root', '235711', {
 });
 
 try {
-    sequelize.authenticate();
-    console.log('connection has been established succesfully');
+    sequelize.authenticate(); 
+    console.log('Connection established succesfully');
 } catch (error) {
     console.error('Failed to create connections', error);
 }

@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 export interface chemicalsType {
-    count: number;
-    rows: chemicalType[];
+  count: number;
+  rows: chemicalType[];
 }
 
 export interface chemicalType {
@@ -17,16 +17,15 @@ export interface chemicalType {
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './app.component.html'
 })
 export class AppComponent {
   title = 'CHEMICAL COMPOUNDS';
 
-  constructor(protected router: Router) {}
+  constructor(protected router: Router) { }
 
   redirectToAddNew() {
-    this.router.navigate(['/add-new-chemical']);
+    this.router.navigate(['/add-compound']);
   }
 
   redirectToHome() {

@@ -10,11 +10,11 @@ const routes: Routes = [
     component: ChemicalCardsComponent
   },
   {
-    path: 'chemical/:id',
+    path: 'compound/:id',
     component: FullChemicalInfoComponent
   },
   {
-    path: 'add-new-chemical',
+    path: 'add-compound',
     component: AddNewChemicalComponent
   }
 ];
